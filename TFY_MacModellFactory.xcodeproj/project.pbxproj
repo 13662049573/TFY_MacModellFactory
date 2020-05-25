@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		565AFA6F247B4C5E00FF5323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFA6E247B4C5E00FF5323 /* AppDelegate.m */; };
-		565AFA72247B4C5E00FF5323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFA71247B4C5E00FF5323 /* ViewController.m */; };
 		565AFA74247B4C5F00FF5323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565AFA73247B4C5F00FF5323 /* Assets.xcassets */; };
-		565AFA77247B4C5F00FF5323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565AFA75247B4C5F00FF5323 /* Main.storyboard */; };
 		565AFA7A247B4C5F00FF5323 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFA79247B4C5F00FF5323 /* main.m */; };
 		565AFA85247B4C5F00FF5323 /* TFY_MacModellFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFA84247B4C5F00FF5323 /* TFY_MacModellFactoryTests.m */; };
 		565AFA90247B4C5F00FF5323 /* TFY_MacModellFactoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFA8F247B4C5F00FF5323 /* TFY_MacModellFactoryUITests.m */; };
+		565AFA9E247B4CA000FF5323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 565AFA9D247B4CA000FF5323 /* Main.storyboard */; };
+		565AFAAA247B4D1C00FF5323 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFAA1247B4D1C00FF5323 /* AppDelegate.m */; };
+		565AFAAB247B4D1C00FF5323 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFAA3247B4D1C00FF5323 /* ViewController.m */; };
+		565AFAAC247B4D1C00FF5323 /* NSString+methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFAA6247B4D1C00FF5323 /* NSString+methods.m */; };
+		565AFAAD247B4D1C00FF5323 /* TFY_CodeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 565AFAA7247B4D1C00FF5323 /* TFY_CodeBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +37,7 @@
 
 /* Begin PBXFileReference section */
 		565AFA6A247B4C5E00FF5323 /* TFY_MacModellFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFY_MacModellFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		565AFA6D247B4C5E00FF5323 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		565AFA6E247B4C5E00FF5323 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		565AFA70247B4C5E00FF5323 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		565AFA71247B4C5E00FF5323 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		565AFA73247B4C5F00FF5323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		565AFA76247B4C5F00FF5323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		565AFA78247B4C5F00FF5323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565AFA79247B4C5F00FF5323 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		565AFA7B247B4C5F00FF5323 /* TFY_MacModellFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TFY_MacModellFactory.entitlements; sourceTree = "<group>"; };
@@ -50,6 +47,15 @@
 		565AFA8B247B4C5F00FF5323 /* TFY_MacModellFactoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFY_MacModellFactoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565AFA8F247B4C5F00FF5323 /* TFY_MacModellFactoryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MacModellFactoryUITests.m; sourceTree = "<group>"; };
 		565AFA91247B4C5F00FF5323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565AFA9D247B4CA000FF5323 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		565AFAA0247B4D1C00FF5323 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		565AFAA1247B4D1C00FF5323 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		565AFAA3247B4D1C00FF5323 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		565AFAA4247B4D1C00FF5323 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		565AFAA6247B4D1C00FF5323 /* NSString+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+methods.m"; sourceTree = "<group>"; };
+		565AFAA7247B4D1C00FF5323 /* TFY_CodeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_CodeBuilder.m; sourceTree = "<group>"; };
+		565AFAA8247B4D1C00FF5323 /* NSString+methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+methods.h"; sourceTree = "<group>"; };
+		565AFAA9247B4D1C00FF5323 /* TFY_CodeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_CodeBuilder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +106,11 @@
 		565AFA6C247B4C5E00FF5323 /* TFY_MacModellFactory */ = {
 			isa = PBXGroup;
 			children = (
-				565AFA6D247B4C5E00FF5323 /* AppDelegate.h */,
-				565AFA6E247B4C5E00FF5323 /* AppDelegate.m */,
-				565AFA70247B4C5E00FF5323 /* ViewController.h */,
-				565AFA71247B4C5E00FF5323 /* ViewController.m */,
+				565AFA9F247B4D1C00FF5323 /* AppDelegate */,
+				565AFAA2247B4D1C00FF5323 /* Class */,
+				565AFAA5247B4D1C00FF5323 /* ITools */,
 				565AFA73247B4C5F00FF5323 /* Assets.xcassets */,
-				565AFA75247B4C5F00FF5323 /* Main.storyboard */,
+				565AFA9D247B4CA000FF5323 /* Main.storyboard */,
 				565AFA78247B4C5F00FF5323 /* Info.plist */,
 				565AFA79247B4C5F00FF5323 /* main.m */,
 				565AFA7B247B4C5F00FF5323 /* TFY_MacModellFactory.entitlements */,
@@ -129,6 +134,35 @@
 				565AFA91247B4C5F00FF5323 /* Info.plist */,
 			);
 			path = TFY_MacModellFactoryUITests;
+			sourceTree = "<group>";
+		};
+		565AFA9F247B4D1C00FF5323 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				565AFAA0247B4D1C00FF5323 /* AppDelegate.h */,
+				565AFAA1247B4D1C00FF5323 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		565AFAA2247B4D1C00FF5323 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				565AFAA4247B4D1C00FF5323 /* ViewController.h */,
+				565AFAA3247B4D1C00FF5323 /* ViewController.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		565AFAA5247B4D1C00FF5323 /* ITools */ = {
+			isa = PBXGroup;
+			children = (
+				565AFAA8247B4D1C00FF5323 /* NSString+methods.h */,
+				565AFAA6247B4D1C00FF5323 /* NSString+methods.m */,
+				565AFAA9247B4D1C00FF5323 /* TFY_CodeBuilder.h */,
+				565AFAA7247B4D1C00FF5323 /* TFY_CodeBuilder.m */,
+			);
+			path = ITools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565AFA74247B4C5F00FF5323 /* Assets.xcassets in Resources */,
-				565AFA77247B4C5F00FF5323 /* Main.storyboard in Resources */,
+				565AFA9E247B4CA000FF5323 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,9 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				565AFA72247B4C5E00FF5323 /* ViewController.m in Sources */,
+				565AFAAD247B4D1C00FF5323 /* TFY_CodeBuilder.m in Sources */,
+				565AFAAC247B4D1C00FF5323 /* NSString+methods.m in Sources */,
+				565AFAAB247B4D1C00FF5323 /* ViewController.m in Sources */,
+				565AFAAA247B4D1C00FF5323 /* AppDelegate.m in Sources */,
 				565AFA7A247B4C5F00FF5323 /* main.m in Sources */,
-				565AFA6F247B4C5E00FF5323 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,17 +332,6 @@
 			targetProxy = 565AFA8C247B4C5F00FF5323 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		565AFA75247B4C5F00FF5323 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				565AFA76247B4C5F00FF5323 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		565AFA92247B4C5F00FF5323 /* Debug */ = {
@@ -425,11 +450,14 @@
 				CODE_SIGN_ENTITLEMENTS = TFY_MacModellFactory/TFY_MacModellFactory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				INFOPLIST_FILE = TFY_MacModellFactory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.youhone.TFY-MacModellFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -442,11 +470,14 @@
 				CODE_SIGN_ENTITLEMENTS = TFY_MacModellFactory/TFY_MacModellFactory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				INFOPLIST_FILE = TFY_MacModellFactory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.youhone.TFY-MacModellFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
