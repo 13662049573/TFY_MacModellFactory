@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -921,6 +922,7 @@
                                         <items>
                                             <menuItem title="None" state="on" id="HgT-Ct-e4A"/>
                                             <menuItem title="TFY_Model" id="Qxq-ud-NEf"/>
+                                            <menuItem title="YYModel" id="gNV-Y0-AIQ"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>

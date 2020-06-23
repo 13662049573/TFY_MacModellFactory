@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, TFY_CodeBuilderCodeType) {
 typedef NS_ENUM(NSInteger, TFY_CodeBuilderJSONModelType) {
     TFY_CodeBuilderJSONModelTypeNone = 0,
     TFY_CodeBuilderJSONModelTypeTFY_Model = 1,
+    TFY_CodeBuilderJSONModelTypeYYModel = 2,
 };
 
 typedef NS_ENUM(NSInteger, TFY_XMLParserOptions) {

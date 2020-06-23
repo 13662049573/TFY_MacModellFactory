@@ -250,10 +250,13 @@
             [self handleNumberValue:value key:key hString:hString];
             
         } else if ([value isKindOfClass:[NSString class]]) {
+            NSLog(@"%@ _______         %@",key,value);
+        
             // NSString 类型
-            if ([(NSString *)value length] > 12) {
+            if ([(NSString *)value length] > 12 && ![key isEqualToString:@"description"]) {
                 [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,key, key];
-            } else {
+            }
+            else {
                 if (self.config.jsonType == TFY_CodeBuilderJSONModelTypeNone) {
                     [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,value,key];
                 } else {
@@ -288,7 +291,7 @@
         /// 容器属性的通用类映射器。
         BOOL needLineBreak = NO;
         if (self.tfy_modelPropertyGenericClassDicts.count) {
-            [mString appendFormat:@"+(NSDictionary <NSString *, Class>*)tfy_ModelReplaceContainerElementClassMapper"];
+            [mString appendFormat:@"+(NSDictionary <NSString *, Class> *)tfy_ModelReplaceContainerElementClassMapper"];
             [mString appendFormat:@"{\n     return @{"];
             [self.tfy_modelPropertyGenericClassDicts enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 [mString appendFormat:@"@\"%@\" : %@.class,\n",key, obj];
@@ -330,11 +333,16 @@
 }
 
 - (void)handleIdValue:(NSString *)idValue key:(NSString *)key hString:(NSMutableString *)hString {
-    // 字符串id 替换成 itemId
+    
     if ([key isEqualToString:@"id"]) {
-        [self.tfy_modelPropertyMapper setObject:@"id" forKey:@"itemId"];
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",idValue,idValue,@"itemId"];
-    } else {
+        [self.tfy_modelPropertyMapper setObject:@"id" forKey:@"item_Id"];
+        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",idValue,idValue,@"item_Id"];
+    }
+    else if ([key isEqualToString:@"description"]){
+        [self.tfy_modelPropertyMapper setObject:@"description" forKey:@"desc"];
+        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",idValue,idValue,@"desc"];
+    }
+    else {
         [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,idValue,key];
     }
 }
