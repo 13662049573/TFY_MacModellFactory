@@ -82,7 +82,7 @@ static NSString *const GenerateFilePathCacheKey = @"GenerateFilePathCacheKey";
     [self.codeTypeBtn selectItemAtIndex:0];
     
     [self.jsonTypeBtn removeAllItems];
-    [self.jsonTypeBtn addItemsWithTitles:@[@"None",@"TFY_Model"]];
+    [self.jsonTypeBtn addItemsWithTitles:@[@"None",@"TFY_Model",@"YYModel"]];
     [self.jsonTypeBtn setAction:@selector(jsonTypehandlePopBtn:)];
     [self.jsonTypeBtn selectItemAtIndex:0];
     

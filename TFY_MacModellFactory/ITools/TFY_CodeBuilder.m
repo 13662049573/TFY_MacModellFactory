@@ -316,6 +316,35 @@
         }
     }
     
+    if (self.config.jsonType == TFY_CodeBuilderJSONModelTypeYYModel) {
+        /// 容器属性的通用类映射器。
+        BOOL needLineBreak = NO;
+        if (self.tfy_modelPropertyGenericClassDicts.count) {
+            [mString appendFormat:@"+ (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass"];
+            [mString appendFormat:@"{\n     return @{"];
+            [self.tfy_modelPropertyGenericClassDicts enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [mString appendFormat:@"@\"%@\" : %@.class,\n",key, obj];
+            }];
+            [mString appendFormat:@"     };"];
+            [mString appendFormat:@"\n}\n"];
+            needLineBreak = YES;
+        }
+        
+        /// 自定义属性映射器。
+        if (self.tfy_modelPropertyMapper.count) {
+            if (needLineBreak) {
+                [mString appendFormat:@"\n"];
+            }
+            [mString appendFormat:@"+ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper"];
+            [mString appendFormat:@"{\n   return @{"];
+            [self.tfy_modelPropertyMapper enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [mString appendFormat:@"@\"%@\" : @""\"%@\",\n",key, obj];  //   **\"
+            }];
+            [mString appendFormat:@"     };"];
+            [mString appendFormat:@"\n}\n"];
+        }
+    }
+    
     if (key.length) {
         [self.handleDicts removeObjectForKey:key];
     }
