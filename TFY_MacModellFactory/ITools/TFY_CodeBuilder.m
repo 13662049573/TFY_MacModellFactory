@@ -250,15 +250,13 @@
             [self handleNumberValue:value key:key hString:hString];
             
         } else if ([value isKindOfClass:[NSString class]]) {
-            NSLog(@"%@ _______         %@",key,value);
-        
             // NSString 类型
-            if ([(NSString *)value length] > 12 && ![key isEqualToString:@"description"]) {
-                [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,key, key];
+            if ([(NSString *)value length] > 12 && ![key isEqualToString:@"description"] && ![key hasPrefix:@"new"]) {
+                [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",key,key, key];
             }
             else {
                 if (self.config.jsonType == TFY_CodeBuilderJSONModelTypeNone) {
-                    [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,value,key];
+                    [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",key,value,key];
                 } else {
                     [self handleIdValue:value key:key hString:hString];
                 }
@@ -267,7 +265,7 @@
         } else if ([value isKindOfClass:[NSDictionary class]]) {
             // NSDictionary 类型
             NSString *modelName = [self modelNameWithKey:key];
-            [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, strong) %@ *%@;\n",key,key, modelName, key];\
+            [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , strong) %@ *%@;\n",key,key, modelName, key];\
             
             NSString *propertyValue = [NSString stringWithFormat:@"%@", modelName];
             [self.tfy_modelPropertyGenericClassDicts setObject:propertyValue forKey:key];
@@ -280,7 +278,7 @@
             
         } else {
             // 识别不出类型
-            [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, strong) id %@;\n",key,key,key];
+            [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , strong) id %@;\n",key,key,key];
         }
     }];
     
@@ -309,7 +307,7 @@
             [mString appendFormat:@"+(NSDictionary <NSString *,NSString *> *)tfy_ModelReplacePropertyMapper"];
             [mString appendFormat:@"{\n   return @{"];
             [self.tfy_modelPropertyMapper enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                [mString appendFormat:@"@\"%@\" : @""\"%@\",\n",key, obj];  //   **\"
+                [mString appendFormat:@"@\"%@\" : @""\"%@\",\n",key, obj];
             }];
             [mString appendFormat:@"     };"];
             [mString appendFormat:@"\n}\n"];
@@ -364,15 +362,18 @@
 - (void)handleIdValue:(NSString *)idValue key:(NSString *)key hString:(NSMutableString *)hString {
     
     if ([key isEqualToString:@"id"]) {
-        [self.tfy_modelPropertyMapper setObject:@"id" forKey:@"item_Id"];
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",idValue,idValue,@"item_Id"];
+        [self.tfy_modelPropertyMapper setObject:@"id" forKey:@"itemId"];
+        [hString appendFormat:@"////-- %@ : %@\n@property (nonatomic, assign) NSInteger %@;\n",idValue,idValue,@"itemId"];
     }
     else if ([key isEqualToString:@"description"]){
         [self.tfy_modelPropertyMapper setObject:@"description" forKey:@"desc"];
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",idValue,idValue,@"desc"];
-    }
-    else {
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,idValue,key];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",idValue,idValue,@"desc"];
+    } else if ([key hasPrefix:@"new"]){
+        NSString *valuekey = [key stringByReplacingOccurrencesOfString:@"new" withString:@"news"];
+        [self.tfy_modelPropertyMapper setObject:key forKey:valuekey];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",idValue,idValue,valuekey];
+    } else {
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",key,idValue,key];
     }
 }
 
@@ -384,7 +385,7 @@
         
         if ([firstObject isKindOfClass:[NSString class]]) {
             // NSString 类型
-            [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, strong) NSArray <NSString *> *%@;\n",key,key, key];
+            [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSArray <NSString *> *%@;\n",key,key, key];
             
         } else if ([firstObject isKindOfClass:[NSDictionary class]]) {
             // NSDictionary 类型
@@ -394,7 +395,7 @@
             NSString *propertyValue = [NSString stringWithFormat:@"%@", modelName];
             [self.tfy_modelPropertyGenericClassDicts setObject:propertyValue forKey:key];
             
-            [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, strong) NSArray <%@ *> *%@;\n",key,key, modelName, key];
+            [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSArray <%@ *> *%@;\n",key,key, modelName, key];
             
         } else if ([firstObject isKindOfClass:[NSArray class]]) {
            
@@ -402,7 +403,7 @@
             
         } else {
             
-            [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, strong) NSArray *%@;\n",key,key, key];
+            [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSArray *%@;\n",key,key, key];
         }
     }
 }
@@ -413,19 +414,19 @@
     
     if (strcmp(type, @encode(char)) == 0 || strcmp(type, @encode(unsigned char)) == 0) {
         // char 字符串
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, copy) NSString *%@;\n",key,numValue,key];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , copy) NSString *%@;\n",key,numValue,key];
         
     } else if (strcmp(type, @encode(double)) == 0 || strcmp(type, @encode(float)) == 0) {
          // 浮点型
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, assign) CGFloat %@;\n",key,numValue,key];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , assign) CGFloat %@;\n",key,numValue,key];
     
     } else if (strcmp(type, @encode(BOOL)) == 0) {
          // 布尔值类型
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, assign) BOOL %@;\n",key,numValue,key];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , assign) BOOL %@;\n",key,numValue,key];
         
     } else  {
         // int, long, longlong, unsigned int,unsigned longlong 类型
-        [hString appendFormat:@"/**\n * %@: %@ \n */\n@property (nonatomic, assign) NSInteger %@;\n",key,numValue,key];
+        [hString appendFormat:@"///-- %@ : %@\n@property (nonatomic , assign) NSInteger %@;\n",key,numValue,key];
     }
 }
 
